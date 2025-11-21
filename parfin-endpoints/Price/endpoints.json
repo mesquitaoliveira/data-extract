@@ -1,0 +1,125 @@
+[
+  {
+    "tag": "Price",
+    "method": "POST",
+    "path": "/v1/api/crypto/price/average/base/{base}/quote/{quote}",
+    "summary": "Average Price",
+    "description": "This operation allows you to get the average price of the specified currency pair.",
+    "sectionId": "tag/Price/paths/~1v1~1api~1crypto~1price~1average~1base~1{base}~1quote~1{quote}/post",
+    "pathParameters": [
+      {
+        "name": "base",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "quote",
+        "required": true,
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "tag": "Price",
+    "method": "GET",
+    "path": "/v1/api/crypto/price/markets/{market}/historical-prices",
+    "summary": "Historical Price",
+    "description": "This operation allows you to get the average prices at a certain increment of time for the requested market. The maximum query period depends on increment:",
+    "sectionId": "tag/Price/paths/~1v1~1api~1crypto~1price~1markets~1{market}~1historical-prices/get",
+    "pathParameters": [
+      {
+        "name": "market",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "ETHEUR",
+          "ETHUSD",
+          "BTCEUR",
+          "BTCUSD",
+          "PAXGUSD",
+          "BCHUSD",
+          "LTCUSD",
+          "ETHGBP",
+          "BTCGBP",
+          "LTCGBP",
+          "BCHGBP",
+          "USDPUSD",
+          "ETHBRL",
+          "BTCBRL",
+          "LTCBRL",
+          "BCHBRL",
+          "USDPGBP",
+          "USDPBRL",
+          "LINKUSD",
+          "MATICUSD",
+          "AAVEUSD",
+          "UNIUSD",
+          "AAVEMXN",
+          "BCHMXN",
+          "BTCMXN",
+          "ETHMXN",
+          "LTCMXN",
+          "USDPMXN",
+          "AAVEEUR",
+          "BCHEUR",
+          "LTCEUR",
+          "LINKEUR",
+          "MATICEUR",
+          "PAXGEUR",
+          "SOLEUR",
+          "USDPEUR",
+          "UNIEUR"
+        ]
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "period",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "MINUTE",
+          "HOUR",
+          "DAY",
+          "MONTH",
+          "YEAR",
+          "Example:",
+          "period=DAY"
+        ]
+      },
+      {
+        "name": "quantity",
+        "required": false,
+        "type": "int"
+      },
+      {
+        "name": "increment",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "ONE_MINUTE",
+          "FIVE_MINUTES",
+          "FIFTEEN_MINUTES",
+          "THIRTY_MINUTES",
+          "ONE_HOUR",
+          "TWO_HOURS",
+          "TWELVE_HOURS",
+          "ONE_DAY",
+          "ONE_WEEK",
+          "TWO_WEEKS",
+          "FOUR_WEEKS",
+          "Example:",
+          "increment=ONE_MINUTE"
+        ]
+      }
+    ]
+  },
+  {
+    "tag": "Price",
+    "method": "POST",
+    "path": "/v1/api/crypto/price/simulation",
+    "summary": "Simulation",
+    "description": "This operation allows you to get the last price of the specified currency pair",
+    "sectionId": "tag/Price/paths/~1v1~1api~1crypto~1price~1simulation/post"
+  }
+]

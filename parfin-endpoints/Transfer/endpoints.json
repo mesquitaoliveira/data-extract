@@ -1,0 +1,235 @@
+[
+  {
+    "tag": "Transfer",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/fiat/withdrawals",
+    "summary": "Create Fiat Withdrawal To Whitelisted Fiat Account",
+    "description": "Creates a fiat withdrawal from a specified counterparty, requiring its connection ID from /v1/api/counterparty/connection/all.\nNote #1: Only transactions with \"OTC\" type counterparties are supported.\nNote #2: Before submitting a withdrawal request, ensure the destination fiat account is whitelisted. Whitelisting is exclusively performed through the Parfin Platform UI.",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1fiat~1withdrawals/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the type of a particular connection -- \"OTC\" -- relevant to the current operation."
+      }
+    ],
+    "requestBody": {
+      "fields": [
+        {
+          "name": "connection_id",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/fiat/withdrawals/currencies",
+    "summary": "Get Fiat Withdrawal Currency List",
+    "description": "Retrieves all currencies enabled for Fiat withdrawal at a specific connection (counterparty).",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1fiat~1withdrawals~1currencies/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the type of a particular connection -- \"OTC\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Transfer",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/withdrawals",
+    "summary": "Create Crypto Withdrawal",
+    "description": "Creates a withdraw transaction at a specific connection (counterparty).",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1withdrawals/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ],
+    "requestBody": {
+      "fields": [
+        {
+          "name": "connection_id",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/withdrawals/currencies",
+    "summary": "Get Crypto Withdrawal Currency List",
+    "description": "Retrieves all currencies enabled for withdrawal at a specific connection (counterparty).",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1withdrawals~1currencies/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "network_type_list",
+        "required": false,
+        "type": "string",
+        "description": "This query parameter specifies the blockchains relevant to the current operation. It filters the currencies based on their associated blockchains. For example, by passing \"Ethereum Mainnet\" for this field, the endpoint will return all currencies that run on the Ethereum Mainnet network and are enabled for withdrawal for the specified counterparty connection."
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/withdrawals/whitelist",
+    "summary": "Get Counterparty Whitelist",
+    "description": "Retrieves all whitelisted addresses enabled for withdrawal at a specific connection (counterparty).",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1withdrawals~1whitelist/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the currency to be withdrawal."
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ]
+      },
+      {
+        "name": "network",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the network to be withdrawal."
+      }
+    ]
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/fiat/account/whitelist",
+    "summary": "Get Fiat Accounts Whitelist",
+    "description": "Retrieves a list of Fiat Accounts that are whitelisted. Fiat withdrawal transactions are permitted only to accounts on this list or to connected counterparties.",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1fiat~1account~1whitelist/get"
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/fiat/withdrawals/{id}",
+    "summary": "Get Fiat Withdrawal by id",
+    "description": "Retrieves comprehensive details about a specific fiat withdrawal transaction, using its unique identifier. It serves as a tool for monitoring the progress and specifics of each withdrawal, including the transaction amount, currency involved, and the destination account.",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1fiat~1withdrawals~1{id}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "Unique identifier for a fiat withdrawal transaction. It is a Parfin transaction ID that is returned when a withdrawal is created."
+      }
+    ]
+  },
+  {
+    "tag": "Transfer",
+    "method": "GET",
+    "path": "/v1/api/counterparty/withdrawals/parfin/{id}",
+    "summary": "Get Crypto Withdrawal by id",
+    "description": "Retrieves comprehensive details about a specific withdrawal transaction, using its unique identifier. It serves as a tool for monitoring the progress and specifics of each withdrawal, including the transaction amount, currency involved, and the recipient's address.",
+    "sectionId": "tag/Transfer/paths/~1v1~1api~1counterparty~1withdrawals~1parfin~1{id}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "Unique identifier for a withdrawal transaction. It is a Parfin transaction ID that is returned when a withdrawal is created."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ]
+      }
+    ]
+  }
+]

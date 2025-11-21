@@ -1,0 +1,22 @@
+[
+  {
+    "tag": "Financial",
+    "method": "GET",
+    "path": "/v1/api/financial/report",
+    "summary": "Get Financial Report",
+    "description": "Retrieves a consolidated report containing financial metrics.",
+    "sectionId": "tag/Financial/paths/~1v1~1api~1financial~1report/get",
+    "queryParameters": [
+      {
+        "name": "date_init",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "date_end",
+        "required": true,
+        "type": "string"
+      }
+    ]
+  }
+]

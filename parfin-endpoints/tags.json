@@ -1,0 +1,110 @@
+[
+  {
+    "tag": "Balance",
+    "endpointCount": 5
+  },
+  {
+    "tag": "Blackbox-Wallet",
+    "endpointCount": 4
+  },
+  {
+    "tag": "Blockchain",
+    "endpointCount": 4
+  },
+  {
+    "tag": "BlockchainToken",
+    "endpointCount": 4
+  },
+  {
+    "tag": "Connection",
+    "endpointCount": 2
+  },
+  {
+    "tag": "Currency",
+    "endpointCount": 3
+  },
+  {
+    "tag": "EndPoints",
+    "endpointCount": 3
+  },
+  {
+    "tag": "Financial",
+    "endpointCount": 1
+  },
+  {
+    "tag": "Funding",
+    "endpointCount": 9
+  },
+  {
+    "tag": "FX",
+    "endpointCount": 7
+  },
+  {
+    "tag": "Ledger",
+    "endpointCount": 6
+  },
+  {
+    "tag": "Liquidity",
+    "endpointCount": 1
+  },
+  {
+    "tag": "Order",
+    "endpointCount": 2
+  },
+  {
+    "tag": "Position",
+    "endpointCount": 2
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "endpointCount": 6
+  },
+  {
+    "tag": "Price",
+    "endpointCount": 3
+  },
+  {
+    "tag": "Report",
+    "endpointCount": 4
+  },
+  {
+    "tag": "RFQ",
+    "endpointCount": 6
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "endpointCount": 13
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "endpointCount": 6
+  },
+  {
+    "tag": "Trade",
+    "endpointCount": 8
+  },
+  {
+    "tag": "Transaction",
+    "endpointCount": 7
+  },
+  {
+    "tag": "Transfer",
+    "endpointCount": 8
+  },
+  {
+    "tag": "User",
+    "endpointCount": 9
+  },
+  {
+    "tag": "Wallet",
+    "endpointCount": 8
+  },
+  {
+    "tag": "Web3",
+    "endpointCount": 7
+  },
+  {
+    "tag": "Withdraw-Address",
+    "endpointCount": 8
+  }
+]

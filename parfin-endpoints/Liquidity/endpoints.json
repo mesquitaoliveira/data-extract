@@ -1,0 +1,10 @@
+[
+  {
+    "tag": "Liquidity",
+    "method": "GET",
+    "path": "/v1/api/broker/liquidities",
+    "summary": "Broker - Get Liquidities",
+    "description": "Retrieves the IDs assigned to the broker by the liquidity providers.",
+    "sectionId": "tag/Liquidity/paths/~1v1~1api~1broker~1liquidities/get"
+  }
+]

@@ -1,0 +1,311 @@
+[
+  {
+    "tag": "Trade",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/instruments",
+    "summary": "Get Tradable Instrument List",
+    "description": "Retrieves a list of tradable currency pairs at a specific connection.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1instruments/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Trade",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/markets",
+    "summary": "Get Price",
+    "description": "Gets market price data pertinent to a specific connection and a currency pair.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1markets/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency_pair",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the currency pair relevant to the current operation, formatted as \"BaseCurrency/QuoteCurrency\" (e.g., \"BTC/BRL\")."
+      },
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Trade",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/orders",
+    "summary": "Create Order",
+    "description": "Creates an order at a specific connection.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1orders/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ],
+    "requestBody": {
+      "fields": [
+        {
+          "name": "connection_id",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Trade",
+    "method": "DELETE",
+    "path": "/v1/api/counterparty/connection/{connection_id}/orders/{id}",
+    "summary": "Cancel Order by ID",
+    "description": "Cancels an existing order using the order ID. For certain counterparties, the currency pair must be provided for this operation.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1orders~1{id}/delete",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      },
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the identifier of the specific order."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency_pair",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the currency pair relevant to the current operation, formatted as \"BaseCurrency/QuoteCurrency\" (e.g., \"BTC/BRL\")."
+      },
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Trade",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/orders/{id}",
+    "summary": "Get Order by ID",
+    "description": "Retrieves specific details of an existing order using the order ID. For certain counterparties, the currency pair must be provided for this operation.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1orders~1{id}/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      },
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the identifier of the specific order."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency_pair",
+        "required": true,
+        "type": "string",
+        "description": "Specifies the currency pair relevant to the current operation, formatted as \"BaseCurrency/QuoteCurrency\" (e.g., \"BTC/BRL\")."
+      },
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Trade",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/orders/open",
+    "summary": "Get Open Order List",
+    "description": "Retrieves a list of open orders at a specific connection, offering the option to filter by the currency pair.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1orders~1open/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      },
+      {
+        "name": "currency_pair",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the currency pair relevant to the current operation, formatted as \"BaseCurrency/QuoteCurrency\" (e.g., \"BTC/BRL\")."
+      }
+    ]
+  },
+  {
+    "tag": "Trade",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/quotes",
+    "summary": "Create Quote",
+    "description": "Creates an quote at a specific connection.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1quotes/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ]
+      }
+    ],
+    "requestBody": {
+      "fields": [
+        {
+          "name": "connection_id",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Trade",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/trades",
+    "summary": "Get Trade List",
+    "description": "Retrieves a list of executed trades at a specific connection, providing the flexibility to filter the results based on the order ID, start date, and currency pair.",
+    "sectionId": "tag/Trade/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1trades/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      },
+      {
+        "name": "order_id",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the identifier of the order that originated one or more trades."
+      },
+      {
+        "name": "currency_pair",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the currency pair relevant to the current operation, formatted as \"BaseCurrency/QuoteCurrency\" (e.g., \"BTC/BRL\")."
+      }
+    ]
+  }
+]

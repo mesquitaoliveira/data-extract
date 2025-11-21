@@ -1,0 +1,280 @@
+[
+  {
+    "tag": "Wallet",
+    "method": "GET",
+    "path": "/v1/api/wallet",
+    "summary": "Get all wallets  Deprecated",
+    "description": "Retrieves all wallets.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet/get"
+  },
+  {
+    "tag": "Wallet",
+    "method": "POST",
+    "path": "/v1/api/wallet",
+    "summary": "Create a new wallet by blockchain ID",
+    "description": "Creates a new wallet using blockchain ID.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "walletName",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the name of the wallet."
+        },
+        {
+          "name": "blockchainId",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "Specifies the blockchain ID associated with the wallet."
+        },
+        {
+          "name": "blockchainTokenIds",
+          "required": false,
+          "type": "Array of",
+          "description": "Specifies the blockchain token IDs associated with the wallet."
+        },
+        {
+          "name": "customerTag",
+          "required": false,
+          "type": "string or null",
+          "description": "Tag identifying the transaction by the customer."
+        },
+        {
+          "name": "customerRefId",
+          "required": false,
+          "type": "string or null",
+          "description": "ID identifying the transaction for the customer."
+        },
+        {
+          "name": "walletType",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "CUSTODY",
+            "METAMASK",
+            "WALLETCONNECT",
+            "GASSTATION",
+            "CONTRACT",
+            "HOTWALLET"
+          ]
+        },
+        {
+          "name": "gasStationWalletMetadata",
+          "required": false,
+          "type": "object",
+          "description": "Metadata for setting up a gas station wallet"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Wallet",
+    "method": "PATCH",
+    "path": "/v1/api/wallet/{address}/block",
+    "summary": "Block a wallet by address",
+    "description": "Blocks a wallet by its address.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet~1{address}~1block/patch",
+    "pathParameters": [
+      {
+        "name": "address",
+        "required": true,
+        "type": "string",
+        "description": "Address of the wallet being blocked."
+      }
+    ],
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "address",
+          "required": true,
+          "type": "string",
+          "description": "Address of the wallet being blocked."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Wallet",
+    "method": "GET",
+    "path": "/v1/api/wallet/{id}",
+    "summary": "Find Wallet by ID",
+    "description": "Retrieves detailed information about a specific wallet by providing its ID.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet~1{id}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "ID of wallet to return"
+      }
+    ]
+  },
+  {
+    "tag": "Wallet",
+    "method": "GET",
+    "path": "/v1/api/wallet/{id}/asset/{assetId}",
+    "summary": "Get asset by wallet ID and asset ID",
+    "description": "Retrieves an asset by its wallet ID and asset ID.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet~1{id}~1asset~1{assetId}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "description": "ID of the wallet containing the asset."
+      },
+      {
+        "name": "assetId",
+        "required": true,
+        "type": "string",
+        "description": "ID of the asset being retrieved."
+      }
+    ]
+  },
+  {
+    "tag": "Wallet",
+    "method": "PATCH",
+    "path": "/v1/api/wallet/{walletId}",
+    "summary": "Update wallet",
+    "description": "Updates a wallet by its ID.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet~1{walletId}/patch",
+    "pathParameters": [
+      {
+        "name": "walletId",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "ID of the wallet being updated."
+      }
+    ],
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "walletId",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "ID of the wallet being updated."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Wallet",
+    "method": "POST",
+    "path": "/v1/api/wallet/add-asset",
+    "summary": "Add an asset to a wallet",
+    "description": "Adds a new asset to the specified wallet.",
+    "sectionId": "tag/Wallet/paths/~1v1~1api~1wallet~1add-asset/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "blockchainTokenId",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the blockchain token ID associated with the asset."
+        },
+        {
+          "name": "walletId",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the wallet ID to which the asset will be added."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Wallet",
+    "method": "GET",
+    "path": "/v2/api/wallet",
+    "summary": "Get all wallets and assets",
+    "description": "Retrieves all wallets and their assets.",
+    "sectionId": "tag/Wallet/paths/~1v2~1api~1wallet/get",
+    "queryParameters": [
+      {
+        "name": "StartDate",
+        "required": false,
+        "type": "string",
+        "format": "<date-time>",
+        "description": "Specifies the start date for the wallet request."
+      },
+      {
+        "name": "EndDate",
+        "required": false,
+        "type": "string",
+        "format": "<date-time>",
+        "description": "Specifies the end date for the wallet request."
+      },
+      {
+        "name": "BlockchainId",
+        "required": false,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "Specifies the blockchain ID associated with the wallet request."
+      },
+      {
+        "name": "IsMainGasStation",
+        "required": false,
+        "type": "boolean",
+        "description": "Indicates if the wallet is the main gas station."
+      },
+      {
+        "name": "WalletType",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "CUSTODY",
+          "METAMASK",
+          "WALLETCONNECT",
+          "GASSTATION",
+          "CONTRACT",
+          "HOTWALLET"
+        ]
+      },
+      {
+        "name": "PageIndex",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>"
+      },
+      {
+        "name": "PageSize",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>"
+      },
+      {
+        "name": "Enabled",
+        "required": false,
+        "type": "boolean"
+      }
+    ]
+  }
+]

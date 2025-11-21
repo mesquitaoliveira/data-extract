@@ -1,0 +1,295 @@
+[
+  {
+    "tag": "Transaction",
+    "method": "GET",
+    "path": "/v1/api/transaction",
+    "summary": "Get all transactions",
+    "description": "Retrieves details about all transactions.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction/get",
+    "queryParameters": [
+      {
+        "name": "StartDate",
+        "required": false,
+        "type": "string",
+        "format": "<date-time>",
+        "description": "The start date for fetching transactions. Defaults to 7 days ago from the current date."
+      },
+      {
+        "name": "EndDate",
+        "required": false,
+        "type": "string",
+        "format": "<date-time>",
+        "description": "The end date for fetching transactions. Defaults to the end of the current day."
+      }
+    ]
+  },
+  {
+    "tag": "Transaction",
+    "method": "GET",
+    "path": "/v1/api/transaction/{transactionId}",
+    "summary": "Get transaction by ID",
+    "description": "Retrieves details of a specific transaction by providing its ID.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1{transactionId}/get",
+    "pathParameters": [
+      {
+        "name": "transactionId",
+        "required": true,
+        "type": "string",
+        "description": "ID of the transaction to retrieve."
+      }
+    ]
+  },
+  {
+    "tag": "Transaction",
+    "method": "PUT",
+    "path": "/v1/api/transaction/{transactionId}/cancel",
+    "summary": "Cancel a transaction",
+    "description": "Cancels a transaction before or after it has been pushed. However, if the blockchain already confirmed the transaction, it is not possible to cancel it.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1{transactionId}~1cancel/put",
+    "pathParameters": [
+      {
+        "name": "transactionId",
+        "required": true,
+        "type": "string",
+        "description": "ID of the transaction to cancel."
+      }
+    ],
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "transactionId",
+          "required": true,
+          "type": "string",
+          "description": "ID of the transaction to cancel."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transaction",
+    "method": "PUT",
+    "path": "/v1/api/transaction/{transactionId}/sign-and-push",
+    "summary": "Sign and push transaction",
+    "description": "Signs and pushes a transaction to the blockchain.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1{transactionId}~1sign-and-push/put",
+    "pathParameters": [
+      {
+        "name": "transactionId",
+        "required": true,
+        "type": "string",
+        "description": "ID of the transaction to sign and push."
+      }
+    ],
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "transactionId",
+          "required": true,
+          "type": "string",
+          "description": "ID of the transaction to sign and push."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transaction",
+    "method": "POST",
+    "path": "/v1/api/transaction/create",
+    "summary": "Create a new transaction",
+    "description": "Creates a new on-chain transaction.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1create/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "customerTag",
+          "required": false,
+          "type": "string or null",
+          "description": "Tag identifying the transaction by the customer."
+        },
+        {
+          "name": "customerRefId",
+          "required": false,
+          "type": "string or null",
+          "description": "ID identifying the transaction for the customer."
+        },
+        {
+          "name": "operation",
+          "required": false,
+          "type": "string or null",
+          "description": "Operation type for the transaction. Possible values are 'TRANSFER', 'CREATE', 'MINT', 'MELT', 'DELEGATE', 'DESTROY', 'DEPLOYFROMFACTORY'."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "string or null",
+          "description": "Description of the transaction."
+        },
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "any or null",
+          "description": "Additional metadata for the transaction."
+        },
+        {
+          "name": "source",
+          "required": false,
+          "type": "object",
+          "description": "Source information for a new transaction."
+        },
+        {
+          "name": "destination",
+          "required": false,
+          "type": "object",
+          "description": "Destination information for a new transaction."
+        },
+        {
+          "name": "priority",
+          "required": false,
+          "type": "string or null",
+          "description": "Priority level of the transaction. Possible values are 'LOW', 'MEDIUM', 'HIGH'."
+        },
+        {
+          "name": "isExactValueTransfer",
+          "required": false,
+          "type": "boolean or null",
+          "description": "Indicates if the transaction requires an exact value transfer."
+        },
+        {
+          "name": "gasStationWalletId",
+          "required": false,
+          "type": "string or null",
+          "format": "<uuid>",
+          "description": "ID of the gas station wallet, if applicable."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transaction",
+    "method": "POST",
+    "path": "/v1/api/transaction/estimate",
+    "summary": "Estimate transaction fee",
+    "description": "Estimate the associated costs of a transaction before executing it.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1estimate/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "customerTag",
+          "required": false,
+          "type": "string or null",
+          "description": "Tag identifying the transaction by the customer."
+        },
+        {
+          "name": "customerRefId",
+          "required": false,
+          "type": "string or null",
+          "description": "ID identifying the transaction for the customer."
+        },
+        {
+          "name": "operation",
+          "required": false,
+          "type": "string or null",
+          "description": "Operation type for the transaction. Possible values are 'TRANSFER', 'CREATE', 'MINT', 'MELT', 'DELEGATE', 'DESTROY', 'DEPLOYFROMFACTORY'."
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "string or null",
+          "description": "Description of the transaction."
+        },
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "any or null",
+          "description": "Additional metadata for the transaction."
+        },
+        {
+          "name": "source",
+          "required": false,
+          "type": "object",
+          "description": "Source information for a new transaction."
+        },
+        {
+          "name": "destination",
+          "required": false,
+          "type": "object",
+          "description": "Destination information for a new transaction."
+        },
+        {
+          "name": "priority",
+          "required": false,
+          "type": "string or null",
+          "description": "Priority level of the transaction. Possible values are 'LOW', 'MEDIUM', 'HIGH'."
+        },
+        {
+          "name": "isExactValueTransfer",
+          "required": false,
+          "type": "boolean or null",
+          "description": "Indicates if the transaction requires an exact value transfer."
+        },
+        {
+          "name": "gasStationWalletId",
+          "required": false,
+          "type": "string or null",
+          "format": "<uuid>",
+          "description": "ID of the gas station wallet, if applicable."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Transaction",
+    "method": "PUT",
+    "path": "/v1/api/transaction/speedup",
+    "summary": "Speed up a transaction",
+    "description": "Speed-up a transaction after it has been pushed. However, if the blockchain already confirmed the transaction, it is not possible to speed-up it.",
+    "sectionId": "tag/Transaction/paths/~1v1~1api~1transaction~1speedup/put",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "transactionId",
+          "required": true,
+          "type": "string",
+          "description": "The unique identifier of the transaction to be sped up."
+        },
+        {
+          "name": "increaseFeePercentage",
+          "required": true,
+          "type": "integer",
+          "format": "<int32>",
+          "description": "The percentage of gas fee increase. Must be between 0 and 100."
+        }
+      ]
+    }
+  }
+]

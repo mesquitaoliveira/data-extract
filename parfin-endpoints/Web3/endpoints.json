@@ -1,0 +1,206 @@
+[
+  {
+    "tag": "Web3",
+    "method": "DELETE",
+    "path": "/v1/api/custody/web3/contract",
+    "summary": "Delete a smartcontract by id",
+    "description": "Delete a smartcontract by id.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract/delete",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>"
+      }
+    ]
+  },
+  {
+    "tag": "Web3",
+    "method": "GET",
+    "path": "/v1/api/custody/web3/contract",
+    "summary": "Get all smartcontracts",
+    "description": "Get all smartcontracts.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract/get"
+  },
+  {
+    "tag": "Web3",
+    "method": "POST",
+    "path": "/v1/api/custody/web3/contract",
+    "summary": "Register smartcontract to listen",
+    "description": "Register smartcontract to listen.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "contractAddress",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "blockchainId",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Web3",
+    "method": "GET",
+    "path": "/v1/api/custody/web3/contract/blockchain/{blockchainId}",
+    "summary": "Get all smartcontracts by blockchainId",
+    "description": "Get all smartcontracts by blockchainId.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract~1blockchain~1{blockchainId}/get",
+    "pathParameters": [
+      {
+        "name": "blockchainId",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>"
+      }
+    ]
+  },
+  {
+    "tag": "Web3",
+    "method": "POST",
+    "path": "/v1/api/custody/web3/contract/call",
+    "summary": "Call operation to a smartcontract",
+    "description": "Call operation to a smartcontract.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract~1call/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "object"
+        },
+        {
+          "name": "blockchainId",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Web3",
+    "method": "POST",
+    "path": "/v1/api/custody/web3/contract/deploy",
+    "summary": "Deploy smartcontract",
+    "description": "Deploy smartcontract and register to listen.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract~1deploy/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "customerTag",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "customerRefId",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "object"
+        },
+        {
+          "name": "source",
+          "required": false,
+          "type": "object"
+        },
+        {
+          "name": "priority",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Web3",
+    "method": "POST",
+    "path": "/v1/api/custody/web3/contract/send",
+    "summary": "Send operation to a smartcontract",
+    "description": "Send operation to a smartcontract.",
+    "sectionId": "tag/Web3/paths/~1v1~1api~1custody~1web3~1contract~1send/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "customerTag",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "customerRefId",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "description",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "metadata",
+          "required": false,
+          "type": "object"
+        },
+        {
+          "name": "source",
+          "required": false,
+          "type": "object"
+        },
+        {
+          "name": "priority",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        }
+      ]
+    }
+  }
+]

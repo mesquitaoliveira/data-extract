@@ -1,0 +1,99 @@
+[
+  {
+    "tag": "BlockchainToken",
+    "method": "GET",
+    "path": "/v1/api/blockchain-token",
+    "summary": "Get all supported blockchain tokens",
+    "description": "Retrieves all supported blockchain tokens.",
+    "sectionId": "tag/BlockchainToken/paths/~1v1~1api~1blockchain-token/get"
+  },
+  {
+    "tag": "BlockchainToken",
+    "method": "GET",
+    "path": "v1/api/blockchain-token/{blockchainTokenId}",
+    "summary": "Get blockchain token by ID",
+    "description": "Retrieves a blockchain token by its ID.",
+    "sectionId": "tag/BlockchainToken/paths/v1~1api~1blockchain-token~1{blockchainTokenId}/get",
+    "pathParameters": [
+      {
+        "name": "token_id",
+        "required": true,
+        "type": "string",
+        "description": "ID of the blockchain token being retrieved."
+      }
+    ]
+  },
+  {
+    "tag": "BlockchainToken",
+    "method": "POST",
+    "path": "v1/api/blockchain-token/evm",
+    "summary": "Register a new ERC20 token",
+    "description": "Registers a new ERC20 token.",
+    "sectionId": "tag/BlockchainToken/paths/v1~1api~1blockchain-token~1evm/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "smartContractAddress",
+          "required": true,
+          "type": "string",
+          "description": "Specifies the smart contract address of the ERC20 token."
+        },
+        {
+          "name": "blockchainId",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>",
+          "description": "Specifies the blockchain ID associated with the ERC20 token."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "BlockchainToken",
+    "method": "POST",
+    "path": "v1/api/blockchain-token/price",
+    "summary": "Register a new price token",
+    "description": "Registers a new price token.",
+    "sectionId": "tag/BlockchainToken/paths/v1~1api~1blockchain-token~1price/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "blockchainTokenId",
+          "required": true,
+          "type": "string",
+          "format": "<uuid>"
+        },
+        {
+          "name": "tokenPrice",
+          "required": false,
+          "type": "number or null",
+          "format": "<double>"
+        },
+        {
+          "name": "tokenPriceBuy",
+          "required": false,
+          "type": "number or null",
+          "format": "<double>"
+        },
+        {
+          "name": "tokenPriceSell",
+          "required": false,
+          "type": "number or null",
+          "format": "<double>"
+        }
+      ]
+    }
+  }
+]

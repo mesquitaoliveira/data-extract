@@ -1,0 +1,50 @@
+[
+  {
+    "tag": "EndPoints",
+    "method": "GET",
+    "path": "/v1/webhook/subscribe",
+    "summary": "Webhook GetSubscribe",
+    "description": "Retrieves the notification endpoints that are available for subscription.",
+    "sectionId": "tag/EndPoints/paths/~1v1~1webhook~1subscribe/get"
+  },
+  {
+    "tag": "EndPoints",
+    "method": "POST",
+    "path": "/v1/webhook/subscribe",
+    "summary": "Webhook Subscribe",
+    "description": "Monitors events in real time, listing the events that can be tracked and their loads.",
+    "sectionId": "tag/EndPoints/paths/~1v1~1webhook~1subscribe/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "retry",
+          "required": false,
+          "type": "number",
+          "description": "The number of times the WebHook retries sending the message."
+        },
+        {
+          "name": "subscribes",
+          "required": false,
+          "type": "Array of"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "EndPoints",
+    "method": "POST",
+    "path": "/v1/webhook/unsubscribe",
+    "summary": "Webhook UnSubscribe",
+    "description": "Unsubscribe from events in real time.",
+    "sectionId": "tag/EndPoints/paths/~1v1~1webhook~1unsubscribe/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "entities",
+          "required": false,
+          "type": "Array of"
+        }
+      ]
+    }
+  }
+]

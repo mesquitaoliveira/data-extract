@@ -1,0 +1,65 @@
+[
+  {
+    "tag": "Settings:-User-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/execution",
+    "summary": "Get User's Execution Settings",
+    "description": "Retrieves the user's RFQ execution settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1execution/get"
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/execution",
+    "summary": "Update User's Execution Settings",
+    "description": "Update the user's RFQ execution settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1execution/put"
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/sor",
+    "summary": "Get User's SOR Settings",
+    "description": "Retrieves the user's SOR settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1sor/get"
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/sor",
+    "summary": "Update User's SOR Settings",
+    "description": "Update the user's SOR settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1sor/put"
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/spread",
+    "summary": "Get User's Spread Settings",
+    "description": "Retrieves the user's RFQ Spread settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1spread/get"
+  },
+  {
+    "tag": "Settings:-User-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/user/{user_id}/settings/rfq/spread",
+    "summary": "Update User's Spread Settings",
+    "description": "Update the user's RFQ Spread settings.",
+    "sectionId": "tag/Settings:-User-Level/paths/~1v1~1api~1crypto~1user~1{user_id}~1settings~1rfq~1spread/put",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "use_rfq_spread_settings",
+          "required": false,
+          "type": "boolean",
+          "description": "Indicates that user-customized settings are enabled."
+        },
+        {
+          "name": "connection_spreads",
+          "required": false,
+          "type": "Array of"
+        }
+      ]
+    }
+  }
+]

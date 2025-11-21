@@ -1,0 +1,165 @@
+[
+  {
+    "tag": "FX",
+    "method": "GET",
+    "path": "/v1/api/fx/banks",
+    "summary": "Available Banks",
+    "description": "Retrieves a list of available banks.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1banks/get"
+  },
+  {
+    "tag": "FX",
+    "method": "GET",
+    "path": "/v1/api/fx/banks/whitelist/all",
+    "summary": "Retrieve Whitelisted Connections",
+    "description": "Retrieves a list of whitelisted accounts held at the selected bank.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1banks~1whitelist~1all/get",
+    "queryParameters": [
+      {
+        "name": "bank",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "BTG",
+          "PLURAL"
+        ],
+        "description": "Specifies the FX provider."
+      }
+    ]
+  },
+  {
+    "tag": "FX",
+    "method": "GET",
+    "path": "/v1/api/fx/banks/whitelist/pretickets",
+    "summary": "Retrieve BTG Pré-Ticket Data",
+    "description": "Fetch details of existing “pré-tickets” from BTG. Use this endpoint when BTG is configured as an FX provider and information is required about previously created “pré-tickets.”",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1banks~1whitelist~1pretickets/get"
+  },
+  {
+    "tag": "FX",
+    "method": "GET",
+    "path": "/v1/api/fx/currencies/base",
+    "summary": "Base Currencies for FX",
+    "description": "Retrieves a list of all available base currencies for conducting foreign exchange (FX) transactions.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1currencies~1base/get",
+    "queryParameters": [
+      {
+        "name": "bank",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "BTG",
+          "PLURAL"
+        ],
+        "description": "Specifies the FX provider."
+      }
+    ]
+  },
+  {
+    "tag": "FX",
+    "method": "GET",
+    "path": "/v1/api/fx/currencies/quote",
+    "summary": "Quote Currencies for FX",
+    "description": "Retrieve a list of available quote currencies for conducting foreign exchange (FX) transactions.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1currencies~1quote/get",
+    "queryParameters": [
+      {
+        "name": "bank",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "BTG",
+          "PLURAL"
+        ],
+        "description": "Specifies the FX provider."
+      }
+    ]
+  },
+  {
+    "tag": "FX",
+    "method": "POST",
+    "path": "/v1/api/fx/quote/execute",
+    "summary": "Execute FX Transaction",
+    "description": "Executes an FX spot transaction between your pre-approved (whitelisted) accounts within the bank of your choice.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1quote~1execute/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "client_request_id",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "quote_id",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>"
+        },
+        {
+          "name": "whitelist_id",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "FX",
+    "method": "POST",
+    "path": "/v1/api/fx/quote/request",
+    "summary": "Request for FX Quote",
+    "description": "Submits a request for a new FX quote to a specific FX provider, granting the flexibility to specify the desired base and quote currencies.",
+    "sectionId": "tag/FX/paths/~1v1~1api~1fx~1quote~1request/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "base_currency",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "quote_currency",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "client_request_id",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "reason",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "whitelist_id",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>"
+        },
+        {
+          "name": "connection_id",
+          "required": false,
+          "type": "string",
+          "format": "<uuid>"
+        },
+        {
+          "name": "side",
+          "required": false,
+          "type": "string",
+          "enum": [
+            "BUY",
+            "SELL"
+          ]
+        }
+      ]
+    }
+  }
+]

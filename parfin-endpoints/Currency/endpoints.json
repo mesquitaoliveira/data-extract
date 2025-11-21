@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "Currency",
+    "method": "GET",
+    "path": "/v1/api/crypto/currency/pairs",
+    "summary": "Get All Currency Pairs",
+    "description": "Retrieves all available currency and cryptocurrency pairs.",
+    "sectionId": "tag/Currency/paths/~1v1~1api~1crypto~1currency~1pairs/get"
+  },
+  {
+    "tag": "Currency",
+    "method": "GET",
+    "path": "/v1/api/crypto/currency/pairs/tradable",
+    "summary": "Get All Tradable Currency Pairs",
+    "description": "Retrieves all tradable cryptocurrency pairs. The pairs that end-users are able to make an RFQ.",
+    "sectionId": "tag/Currency/paths/~1v1~1api~1crypto~1currency~1pairs~1tradable/get"
+  },
+  {
+    "tag": "Currency",
+    "method": "GET",
+    "path": "/v1/api/crypto/currency/ungrouped",
+    "summary": "Get All Currencies Ungrouped",
+    "description": "Retrieves a list of all available currencies and cryptocurrencies.",
+    "sectionId": "tag/Currency/paths/~1v1~1api~1crypto~1currency~1ungrouped/get"
+  }
+]

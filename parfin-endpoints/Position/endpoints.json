@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "Position",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/balances/account",
+    "summary": "Account Balance",
+    "description": "Retrieves total and available balances for all assets at a specific connection.",
+    "sectionId": "tag/Position/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1balances~1account/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the symbol of the currency related to the current operation (e.g., \"BTC\")"
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Position",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/balances/trade",
+    "summary": "Trade Balance",
+    "description": "Retrieves the trade balance for a specific asset at a particular connection (counterparty).",
+    "sectionId": "tag/Position/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1balances~1trade/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "currency",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the symbol of the currency related to the current operation (e.g., \"BTC\")"
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  }
+]

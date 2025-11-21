@@ -1,0 +1,94 @@
+[
+  {
+    "tag": "Report",
+    "method": "GET",
+    "path": "/v1/api/counterparty/report/{file_name}",
+    "summary": "Get Download Link of the Report",
+    "description": "Retrieves the requested report donwload link",
+    "sectionId": "tag/Report/paths/~1v1~1api~1counterparty~1report~1{file_name}/get",
+    "pathParameters": [
+      {
+        "name": "file_name",
+        "required": true,
+        "type": "string",
+        "description": "This path parameter, a string representing the report file name"
+      }
+    ]
+  },
+  {
+    "tag": "Report",
+    "method": "GET",
+    "path": "/v1/api/counterparty/report/all",
+    "summary": "Get all requested reports list",
+    "description": "Retrieves the requested reports list using the pagination parameters",
+    "sectionId": "tag/Report/paths/~1v1~1api~1counterparty~1report~1all/get",
+    "queryParameters": [
+      {
+        "name": "pageNumber",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>",
+        "description": "This query parameter, a integer representing the requested page number"
+      },
+      {
+        "name": "pageSize",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>",
+        "description": "This query parameter, a integer representing the requested page size"
+      }
+    ]
+  },
+  {
+    "tag": "Report",
+    "method": "POST",
+    "path": "/v1/api/counterparty/report/create",
+    "summary": "Create report async",
+    "description": "Retrieves the requested report data",
+    "sectionId": "tag/Report/paths/~1v1~1api~1counterparty~1report~1create/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "report_type_name",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the report type name"
+        },
+        {
+          "name": "from_date",
+          "required": false,
+          "type": "string",
+          "format": "<date-time>",
+          "description": "Specifies the report requested filter from date"
+        },
+        {
+          "name": "to_date",
+          "required": false,
+          "type": "string",
+          "format": "<date-time>",
+          "description": "Specifies the report requested filter to date"
+        },
+        {
+          "name": "time",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the report requested filter time"
+        },
+        {
+          "name": "skip_zero_balance",
+          "required": false,
+          "type": "boolean",
+          "description": "Specifies the report requested filter (Exclude null and zero asset balances)"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Report",
+    "method": "GET",
+    "path": "/v1/api/counterparty/report/types",
+    "summary": "Get all reports types",
+    "description": "Retrieves all available report types",
+    "sectionId": "tag/Report/paths/~1v1~1api~1counterparty~1report~1types/get"
+  }
+]

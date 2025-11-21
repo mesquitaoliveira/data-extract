@@ -1,0 +1,106 @@
+[
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/settings/availablecounterparties",
+    "summary": "Get Available Counterparties",
+    "description": "Retrieves a list of enabled counterparties for the company.",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1availablecounterparties/get"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/settings/deposit",
+    "summary": "Get Deposit Settings",
+    "description": "Retrieves the company's deposit settings. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1deposit/get"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "POST",
+    "path": "/v1/api/crypto/settings/deposit",
+    "summary": "Create Deposit Settings",
+    "description": "Creates a new deposit settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1deposit/post"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/settings/deposit",
+    "summary": "Update Deposit Settings",
+    "description": "Updates the deposit settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1deposit/put"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/settings/general",
+    "summary": "Get General Settings",
+    "description": "Retrieves the company's general settings.  These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1general/get"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "POST",
+    "path": "/v1/api/crypto/settings/general",
+    "summary": "Create General Settings",
+    "description": "Creates a new general settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1general/post"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/settings/general",
+    "summary": "Update General Settings",
+    "description": "Updates the general settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1general/put"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/settings/rfq",
+    "summary": "Get RFQ Settings",
+    "description": "Retrieves the company's RFQ settings. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1rfq/get"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "POST",
+    "path": "/v1/api/crypto/settings/rfq",
+    "summary": "Create RFQ Settings",
+    "description": "Creates a new RFQ settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1rfq/post"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/settings/rfq",
+    "summary": "Update RFQ Settings",
+    "description": "Updates the RFQ settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1rfq/put"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "GET",
+    "path": "/v1/api/crypto/settings/withdrawal",
+    "summary": "Get Withdrawal Settings",
+    "description": "Retrieves the company's withdrawal settings. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1withdrawal/get"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "POST",
+    "path": "/v1/api/crypto/settings/withdrawal",
+    "summary": "Create Withdrawal Settings",
+    "description": "Creates a new withdrawal settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1withdrawal/post"
+  },
+  {
+    "tag": "Settings:-Company-Level",
+    "method": "PUT",
+    "path": "/v1/api/crypto/settings/withdrawal",
+    "summary": "Update Withdrawal Settings",
+    "description": "Updates the withdrawal settings for the company. These settings are applied at the company level and encompass:",
+    "sectionId": "tag/Settings:-Company-Level/paths/~1v1~1api~1crypto~1settings~1withdrawal/put"
+  }
+]

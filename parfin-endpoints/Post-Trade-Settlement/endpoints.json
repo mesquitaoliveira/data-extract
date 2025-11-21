@@ -1,0 +1,206 @@
+[
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/batch",
+    "summary": "Trigger Early Settlement",
+    "description": "Initiates an unscheduled settlement, generating a new batch to settle ahead of regular schedule.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1batch/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "POST",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/batch/settle",
+    "summary": "Settle a Batch",
+    "description": "Launches the settlement procedure for an opened batch.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1batch~1settle/post",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "batch_id",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the identifier of the batch associated with the settlement process."
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/batches",
+    "summary": "PTS Batches Information",
+    "description": "Retrieves all batches associated with a specific PTS (Post-Trade Settlement) connection.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1batches/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/batches/detail",
+    "summary": "PTS Batches Information with Details",
+    "description": "Returns detailed batch asset information. Facilitates requests for a specific batch ID or for batches with current statuses: open, in settlement, or prepared.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1batches~1detail/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "open",
+        "required": false,
+        "type": "boolean",
+        "description": "If set to true, it will retrieve the batches that are in the \"open\" state."
+      },
+      {
+        "name": "in_settlement",
+        "required": false,
+        "type": "boolean",
+        "description": "If set to true, it will retrieve the batches that are in the \"in settlement\" state."
+      },
+      {
+        "name": "prepared",
+        "required": false,
+        "type": "boolean",
+        "description": "If set to true, it will retrieve the batches that are in the \"prepared\" state."
+      },
+      {
+        "name": "batch_id",
+        "required": false,
+        "type": "string",
+        "description": "Specifies the identifier of the batch associated with the settlement process involving a specific counterparty (connection)."
+      },
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/instructions/{currency}",
+    "summary": "Payment Instructions (Circle)",
+    "description": "Returns the payment instructions needed to settle batches with Circle.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1instructions~1{currency}/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      },
+      {
+        "name": "currency",
+        "required": true,
+        "type": "string",
+        "format": "<string>",
+        "description": "This query parameter is a string, Specifies the currency of the batch associated with the settlement process. (e.g., \"BRL\")."
+      }
+    ]
+  },
+  {
+    "tag": "Post-Trade-Settlement",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/settlement/summary",
+    "summary": "Settlement Summary",
+    "description": "Retrieves information about a specific post-trade settlement account, such as credit amount, credit usage, collateral amount, and current open positions.",
+    "sectionId": "tag/Post-Trade-Settlement/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1settlement~1summary/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": false,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  }
+]

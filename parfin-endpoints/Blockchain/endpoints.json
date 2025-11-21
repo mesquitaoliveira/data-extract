@@ -1,0 +1,74 @@
+[
+  {
+    "tag": "Blockchain",
+    "method": "GET",
+    "path": "v1/api/blockchain",
+    "summary": "Get all blockchains",
+    "description": "Retrieves all blockchains.",
+    "sectionId": "tag/Blockchain/paths/v1~1api~1blockchain/get"
+  },
+  {
+    "tag": "Blockchain",
+    "method": "GET",
+    "path": "v1/api/blockchain/{blockchainId}",
+    "summary": "Get blockchain by ID",
+    "description": "Retrieves a blockchain by its ID.",
+    "sectionId": "tag/Blockchain/paths/v1~1api~1blockchain~1{blockchainId}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "ID of the blockchain being retrieved."
+      }
+    ]
+  },
+  {
+    "tag": "Blockchain",
+    "method": "GET",
+    "path": "v1/api/blockchain/{blockchainId}/blockchain-token",
+    "summary": "Get blockchain tokens by blockchain ID",
+    "description": "Retrieves blockchain tokens by blockchain ID.",
+    "sectionId": "tag/Blockchain/paths/v1~1api~1blockchain~1{blockchainId}~1blockchain-token/get",
+    "pathParameters": [
+      {
+        "name": "blockchainId",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "ID of the blockchain whose tokens are being retrieved."
+      }
+    ]
+  },
+  {
+    "tag": "Blockchain",
+    "method": "GET",
+    "path": "v2/api/blockchain",
+    "summary": "Get all blockchains by filters",
+    "description": "Retrieves all blockchains by filters.",
+    "sectionId": "tag/Blockchain/paths/v2~1api~1blockchain/get",
+    "queryParameters": [
+      {
+        "name": "AcceptGasStation",
+        "required": false,
+        "type": "boolean",
+        "description": "Indicates if the blockchains accept gas stations."
+      },
+      {
+        "name": "PageIndex",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>",
+        "description": "Specifies the page index for pagination."
+      },
+      {
+        "name": "PageSize",
+        "required": false,
+        "type": "integer",
+        "format": "<int32>",
+        "description": "Specifies the page size for pagination."
+      }
+    ]
+  }
+]

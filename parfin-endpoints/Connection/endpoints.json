@@ -1,0 +1,53 @@
+[
+  {
+    "tag": "Connection",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/{connection_id}/is-valid-credentials",
+    "summary": "Validate Credentials Status",
+    "description": "Validate the credential for a particular connection using the connection_id acquired from the Connection List endpoint.",
+    "sectionId": "tag/Connection/paths/~1v1~1api~1counterparty~1connection~1{connection_id}~1is-valid-credentials/get",
+    "pathParameters": [
+      {
+        "name": "connection_id",
+        "required": true,
+        "type": "string",
+        "format": "<uuid>",
+        "description": "This path parameter, a string in UUID format, serves to identify the specific connection (counterparty) relevant to the current operation."
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  },
+  {
+    "tag": "Connection",
+    "method": "GET",
+    "path": "/v1/api/counterparty/connection/all",
+    "summary": "Connection List",
+    "description": "Retrieves all connected counterparties.",
+    "sectionId": "tag/Connection/paths/~1v1~1api~1counterparty~1connection~1all/get",
+    "queryParameters": [
+      {
+        "name": "counterparty_type",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "EXCHANGE",
+          "OTC",
+          "CUSTODY"
+        ],
+        "description": "Specifies the type of a particular connection -- \"EXCHANGE\", \"CUSTODY\", \"OTC\", or \"BANK\" -- relevant to the current operation."
+      }
+    ]
+  }
+]

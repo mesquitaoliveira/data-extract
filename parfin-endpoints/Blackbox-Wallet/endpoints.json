@@ -1,0 +1,128 @@
+[
+  {
+    "tag": "Blackbox-Wallet",
+    "method": "GET",
+    "path": "/v1/api/wallet/blackbox",
+    "summary": "Get all blackboxes for a customer",
+    "description": "Retrieves all blackboxes.",
+    "sectionId": "tag/Blackbox-Wallet/paths/~1v1~1api~1wallet~1blackbox/get"
+  },
+  {
+    "tag": "Blackbox-Wallet",
+    "method": "POST",
+    "path": "/v1/api/wallet/blackbox",
+    "summary": "Create a new blackbox",
+    "description": "Creates a new blackbox.",
+    "sectionId": "tag/Blackbox-Wallet/paths/~1v1~1api~1wallet~1blackbox/post",
+    "requestBody": {
+      "contentTypes": [
+        "application/json-patch+json",
+        "application/json",
+        "text/json",
+        "application/*+json"
+      ],
+      "fields": [
+        {
+          "name": "walletName",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the name of the wallet."
+        },
+        {
+          "name": "signatureAlgorithm",
+          "required": false,
+          "type": "string or null",
+          "description": "Specifies the signature algorithm for the wallet."
+        },
+        {
+          "name": "userId",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "customerId",
+          "required": false,
+          "type": "string or null"
+        }
+      ]
+    }
+  },
+  {
+    "tag": "Blackbox-Wallet",
+    "method": "GET",
+    "path": "/v1/api/wallet/blackbox/{wallet_id}",
+    "summary": "Get blackbox by ID",
+    "description": "Retrieves a blackbox by its ID.",
+    "sectionId": "tag/Blackbox-Wallet/paths/~1v1~1api~1wallet~1blackbox~1{wallet_id}/get",
+    "pathParameters": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "description": "ID of the blackbox being retrieved."
+      }
+    ]
+  },
+  {
+    "tag": "Blackbox-Wallet",
+    "method": "POST",
+    "path": "/v1/api/wallet/blackbox/sign",
+    "summary": "Sign Transaction by Wallet",
+    "description": "Signs the given input using the blackbox wallet specified by its wallet ID.",
+    "sectionId": "tag/Blackbox-Wallet/paths/~1v1~1api~1wallet~1blackbox~1sign/post",
+    "requestBody": {
+      "fields": [
+        {
+          "name": "originId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "originName",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "blockchain",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "walletId",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "rawTransaction",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "bufferToSign",
+          "required": true,
+          "type": "Array of"
+        },
+        {
+          "name": "fromAddress",
+          "required": false,
+          "type": "Array of"
+        },
+        {
+          "name": "destinationAddress",
+          "required": false,
+          "type": "Array of"
+        },
+        {
+          "name": "amount",
+          "required": false,
+          "type": "string or null"
+        },
+        {
+          "name": "typeAmount",
+          "required": false,
+          "type": "string or null"
+        }
+      ]
+    }
+  }
+]
